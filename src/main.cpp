@@ -383,7 +383,7 @@ int main(int argc, char* argv[])
         // Note que, no sistema de coordenadas da câmera, os planos near e far
         // estão no sentido negativo! Veja slides 176-204 do documento Aula_09_Projecoes.pdf.
         float nearplane = -1.0f;  // Posição do "near plane"
-        float farplane  = -10.0f; // Posição do "far plane"
+        float farplane  = 50.0f; // Posição do "far plane"
 
         if (g_UsePerspectiveProjection)
         {
@@ -425,18 +425,19 @@ int main(int argc, char* argv[])
         glUniformMatrix4fv(g_model_uniform, 1 , GL_FALSE , glm::value_ptr(model));
         glUniform1i(g_object_id_uniform, CAR);
         DrawVirtualObject("Car_Cube");
+        
         // Desenho Rua
         model = Matrix_Translate(0.0f, -1.0f,0.0f) * Matrix_Rotate_Y(1.65f); 
         glUniformMatrix4fv(g_model_uniform, 1 , GL_FALSE , glm::value_ptr(model));
         glUniform1i(g_object_id_uniform, ROAD);
         DrawVirtualObject("rua_Cubo");
         // Desenho Rua
-        model = Matrix_Translate(4.0f, -1.0f,0.0f) * Matrix_Rotate_Y(1.65f); 
+        model = Matrix_Translate(4.35f, -1.0f,0.0f) * Matrix_Rotate_Y(1.65f); 
         glUniformMatrix4fv(g_model_uniform, 1 , GL_FALSE , glm::value_ptr(model));
         glUniform1i(g_object_id_uniform, ROAD);
         DrawVirtualObject("rua_Cubo");
         // Desenho Rua
-        model = Matrix_Translate(-4.0f, -1.0f,0.0f) * Matrix_Rotate_Y(1.65f); 
+        model = Matrix_Translate(-4.35f, -1.0f,0.0f) * Matrix_Rotate_Y(1.65f); 
         glUniformMatrix4fv(g_model_uniform, 1 , GL_FALSE , glm::value_ptr(model));
         glUniform1i(g_object_id_uniform, ROAD);
         DrawVirtualObject("rua_Cubo");
